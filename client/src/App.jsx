@@ -17,6 +17,10 @@ function App() {
     setShowCreateUser(false);
   };
 
+  const AddUserHandlerSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <main>
       <Header />
@@ -33,7 +37,7 @@ function App() {
 
           <Pagination />
 
-          {showCreateUser && <CreateUserModal onClose={closeUserModalHandler} />}
+          {showCreateUser && <CreateUserModal onClose={closeUserModalHandler} onSubmit={AddUserHandlerSubmit} />}
         </section>
 
         {/* User details component  */}
