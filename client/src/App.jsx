@@ -1,11 +1,22 @@
+import { useState } from 'react';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import Pagination from './components/Pagination.jsx';
 import Search from './components/Search.jsx';
 import UserList from './components/UserList.jsx';
-
+import CreateUserModal from './components/CreateUserModal.jsx';
 
 function App() {
+  const [showCreateUser, setShowCreateUser] = useState(false);
+
+  const addUserClickHandler = () => {
+    setShowCreateUser(true);
+  };
+
+  const closeUserModalHandler = () => {
+    setShowCreateUser(false);
+  };
+
   return (
     <main>
       <Header />
@@ -16,9 +27,13 @@ function App() {
 
           <UserList />
 
-          <button className="btn-add btn">Add new user</button>
+          <button className="btn-add btn" onClick={addUserClickHandler}>
+            Add new user
+          </button>
 
           <Pagination />
+
+          {showCreateUser && <CreateUserModal onClose={closeUserModalHandler} />}
         </section>
 
         {/* User details component  */}

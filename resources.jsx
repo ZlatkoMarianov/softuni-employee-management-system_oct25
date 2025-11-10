@@ -1,19 +1,18 @@
 <>
 
-
       {/* Overlap components  */}
-      <div class="loading-shade">
+      <div className="loading-shade">
         {/* Loading spinner  */}
-        <div class="spinner"></div>
+        <div className="spinner"></div>
 
         {/* No users added yet  */}
-        <div class="table-overlap">
+        <div className="table-overlap">
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
             data-icon="triangle-exclamation"
-            class="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
+            className="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -27,13 +26,13 @@
         </div>
 
         {/* No content overlap component  */}
-        <div class="table-overlap">
+        <div className="table-overlap">
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
             data-icon="triangle-exclamation"
-            class="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
+            className="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -46,13 +45,13 @@
           <h2>Sorry, we couldn't find what you're looking for.</h2>
         </div>
         {/* On error overlap component  */}
-        <div class="table-overlap">
+        <div className="table-overlap">
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
             data-icon="triangle-exclamation"
-            class="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
+            className="svg-inline--fa fa-triangle-exclamation Table_icon__+HHgn"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -68,19 +67,19 @@
 
 
     {/* User details component  */}
-    <div class="overlay">
-      <div class="backdrop"></div>
-      <div class="modal">
-        <div class="detail-container">
-          <header class="headers">
+    <div className="overlay">
+      <div className="backdrop"></div>
+      <div className="modal">
+        <div className="detail-container">
+          <header className="headers">
             <h2>User Detail</h2>
-            <button class="btn close">
+            <button className="btn close">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="xmark"
-                class="svg-inline--fa fa-xmark"
+                className="svg-inline--fa fa-xmark"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
@@ -92,11 +91,11 @@
               </svg>
             </button>
           </header>
-          <div class="content">
-            <div class="image-container">
-              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="" class="image" />
+          <div className="content">
+            <div className="image-container">
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="" className="image" />
             </div>
-            <div class="user-details">
+            <div className="user-details">
               <p>
                 User Id: <strong>62bb0c0eda039e2fdccba57b</strong>
               </p>
@@ -128,151 +127,21 @@
     </div>
 
     {/* Create/Edit Form component  */}
-    <div class="overlay">
-      <div class="backdrop"></div>
-      <div class="modal">
-        <div class="user-container">
-          <header class="headers">
-            <h2>Edit User/Add User</h2>
-            <button class="btn close">
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="xmark"
-                class="svg-inline--fa fa-xmark"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-              >
-                <path
-                  fill="currentColor"
-                  d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
-                ></path>
-              </svg>
-            </button>
-          </header>
-          <form>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First name</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-user"></i>
-                  </span>
-                  <input id="firstName" name="firstName" type="text" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last name</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-user"></i>
-                  </span>
-                  <input id="lastName" name="lastName" type="text" />
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-envelope"></i>
-                  </span>
-                  <input id="email" name="email" type="text" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="phoneNumber">Phone number</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-phone"></i>
-                  </span>
-                  <input id="phoneNumber" name="phoneNumber" type="text" />
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group long-line">
-              <label for="imageUrl">Image Url</label>
-              <div class="input-wrapper">
-                <span>
-                  <i class="fa-solid fa-image"></i>
-                </span>
-                <input id="imageUrl" name="imageUrl" type="text" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="country">Country</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-map"></i>
-                  </span>
-                  <input id="country" name="country" type="text" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-city"></i>
-                  </span>
-                  <input id="city" name="city" type="text" />
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="street">Street</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-map"></i>
-                  </span>
-                  <input id="street" name="street" type="text" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="streetNumber">Street number</label>
-                <div class="input-wrapper">
-                  <span>
-                    <i class="fa-solid fa-house-chimney"></i>
-                  </span>
-                  <input id="streetNumber" name="streetNumber" type="text" />
-                </div>
-              </div>
-            </div>
-            <div id="form-actions">
-              <button id="action-save" class="btn" type="submit">
-                Save
-              </button>
-              <button id="action-cancel" class="btn" type="button">
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
     {/* Delete user component  */}
-    <div class="overlay">
-      <div class="backdrop"></div>
-      <div class="modal">
-        <div class="confirm-container">
-          <header class="headers">
+    <div className="overlay">
+      <div className="backdrop"></div>
+      <div className="modal">
+        <div className="confirm-container">
+          <header className="headers">
             <h2>Are you sure you want to delete this account?</h2>
-            <button class="btn close">
+            <button className="btn close">
               <svg
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
                 data-icon="xmark"
-                class="svg-inline--fa fa-xmark"
+                className="svg-inline--fa fa-xmark"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
@@ -284,12 +153,12 @@
               </svg>
             </button>
           </header>
-          <div class="actions">
+          <div className="actions">
             <div id="form-actions">
-              <button id="action-save" class="btn" type="submit">
+              <button id="action-save" className="btn" type="submit">
                 Delete
               </button>
-              <button id="action-cancel" class="btn" type="button">
+              <button id="action-cancel" className="btn" type="button">
                 Cancel
               </button>
             </div>
