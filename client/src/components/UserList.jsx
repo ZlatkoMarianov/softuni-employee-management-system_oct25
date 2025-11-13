@@ -4,7 +4,7 @@ import UserItem from './UserItem.jsx';
 import UserDelete from './UserDelete.jsx';
 import UserSaveModal from './UserSaveModal.jsx';
 
-export default function UserList({ users, forceUserRefresh }) {
+export default function UserList({ users, forceUserRefresh, onSort }) {
   const [showUserDetails, setShowUserDetails] = useState(false);
   const [showUserDelete, setShowUserDelete] = useState(false);
   const [showUserEdit, setShowUserEdit] = useState(false);
@@ -142,7 +142,7 @@ export default function UserList({ users, forceUserRefresh }) {
                 ></path>
               </svg>
             </th>
-            <th>
+            <th onClick={() => onSort('createdAt')}>
               Created
               <svg
                 aria-hidden="true"

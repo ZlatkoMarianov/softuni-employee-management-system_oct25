@@ -10,6 +10,8 @@ function App() {
   const [showCreateUser, setShowCreateUser] = useState(false);
   const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(true);
+  const [sortBy, setSortBy] = useState('createdAt');
+  const [sortDirection, setSortDirection] = useState('asc');
 
   useEffect(() => {
     fetch('http://localhost:3030/jsonstore/users')
@@ -30,6 +32,48 @@ function App() {
 
   const closeUserModalHandler = () => {
     setShowCreateUser(false);
+  };
+
+  const sortUsersHandler = (column) => {
+    // Validate column parameter
+    if (!column || typeof column !== 'string') {
+      console.error('Invalid column:', column);
+      return;
+    }
+
+    const newDirection = sortBy === column && sortDirection === 'asc' ? 'desc' : 'asc';
+    setSortBy(column);
+    setSortDirection(newDirection);
+
+    setUsers((state) => {
+      const sorted = [...state].sort((a, b) => {
+        let aValue = a[column];
+        let bValue = b[column];
+
+        if (column.includes('.')) {
+          const keys = column.split('.');
+          aValue = keys.reduce((obj, key) => obj?.[key], a);
+          bValue = keys.reduce((obj, key) => obj?.[key], b);
+        }
+
+        if (column === 'createdAt' || column === 'updatedAt') {
+          aValue = new Date(aValue);
+          bValue = new Date(bValue);
+        }
+
+        if (typeof aValue === 'string') {
+          aValue = aValue.toLowerCase();
+          bValue = bValue.toLowerCase();
+        }
+
+        if (newDirection === 'asc') {
+          return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+        } else {
+          return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+        }
+      });
+      return sorted;
+    });
   };
 
   const AddUserHandlerSubmit = (e) => {
@@ -70,7 +114,7 @@ function App() {
         <section className="card users-container">
           <Search />
 
-          <UserList users={users} forceUserRefresh={forceRefresh} />
+          <UserList users={users} forceUserRefresh={forceRefresh} onSort={sortUsersHandler} sortBy={sortBy} sortDirection={sortDirection} />
 
           <button className="btn-add btn" onClick={addUserClickHandler}>
             Add new user
