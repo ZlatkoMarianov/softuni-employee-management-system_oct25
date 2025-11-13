@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Spinner from './Spinner.jsx';
 
 export default function UserSaveModal({ editMode, userId, onClose, onSubmit }) {
   const [user, setUser] = useState({});
@@ -11,6 +12,11 @@ export default function UserSaveModal({ editMode, userId, onClose, onSubmit }) {
         .catch((err) => alert(err.message));
     }
   }, [editMode, userId]);
+
+  if (editMode && !user) {
+    return <Spinner />;
+  }
+
   return (
     <div className="overlay">
       <div className="backdrop" onClick={onClose}></div>
