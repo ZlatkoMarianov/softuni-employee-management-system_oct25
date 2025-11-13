@@ -1,13 +1,13 @@
 import { fromIsoDate } from '../../utils/dateTimeUtils.js';
 
-export default function UserItem({ _id, firstName, lastName, email, phoneNumber, createdAt, imageUrl, onDetailsClick }) {
+export default function UserItem({ _id, firstName, lastName, email, phoneNumber, createdAt, imageUrl, onDetailsClick, onDeleteClick }) {
   return (
     <tr>
       <td>
-        <img 
-          src={imageUrl || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"} 
-          alt={`${firstName}'s profile`} 
-          className="image" 
+        <img
+          src={imageUrl || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png'}
+          alt={`${firstName}'s profile`}
+          className="image"
         />
       </td>
       <td>{firstName}</td>
@@ -34,7 +34,7 @@ export default function UserItem({ _id, firstName, lastName, email, phoneNumber,
             ></path>
           </svg>
         </button>
-        <button className="btn delete-btn" title="Delete">
+        <button className="btn delete-btn" title="Delete" onClick={() => onDeleteClick(_id)}>
           <svg
             aria-hidden="true"
             focusable="false"
