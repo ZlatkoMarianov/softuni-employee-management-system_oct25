@@ -33,6 +33,37 @@ export default function UserList({ users, forceUserRefresh }) {
     forceUserRefresh();
   };
 
+  const editUserHandler = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const { country, city, street, streetNumber, ...userData } = Object.fromEntries(formData);
+
+    userData.address = {
+      country,
+      city,
+      street,
+      streetNumber,
+    };
+
+    userData.updatedAt = new Date().toISOString();
+
+    try {
+      await fetch(`http://localhost:3030/jsonstore/users/${selectedUserId}`, {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      closeModalHandler();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   return (
     <div className="table-wrapper">
       <table className="table">
@@ -149,7 +180,7 @@ export default function UserList({ users, forceUserRefresh }) {
 
       {showUserDelete && <UserDelete userId={selectedUserId} onClose={closeModalHandler} />}
 
-      {showUserEdit && <UserSaveModal userId={selectedUserId} onClose={closeModalHandler} editMode />}
+      {showUserEdit && <UserSaveModal userId={selectedUserId} onClose={closeModalHandler} onSubmit={editUserHandler} editMode />}
     </div>
   );
 }
