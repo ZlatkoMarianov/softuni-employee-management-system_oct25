@@ -4,7 +4,11 @@ export default function UserItem({ _id, firstName, lastName, email, phoneNumber,
   return (
     <tr>
       <td>
-        <img src={imageUrl} alt={`${firstName}'s profile`} className="image" />
+        <img 
+          src={imageUrl || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"} 
+          alt={`${firstName}'s profile`} 
+          className="image" 
+        />
       </td>
       <td>{firstName}</td>
       <td>{lastName}</td>
