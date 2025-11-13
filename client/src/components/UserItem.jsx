@@ -1,6 +1,6 @@
 import { fromIsoDate } from '../../utils/dateTimeUtils.js';
 
-export default function UserItem({ _id, firstName, lastName, email, phoneNumber, createdAt, imageUrl, onDetailsClick, onDeleteClick }) {
+export default function UserItem({ _id, firstName, lastName, email, phoneNumber, createdAt, imageUrl, onDetailsClick, onDeleteClick, onEditClick }) {
   return (
     <tr>
       <td>
@@ -17,7 +17,7 @@ export default function UserItem({ _id, firstName, lastName, email, phoneNumber,
       <td>{fromIsoDate(createdAt)}</td>
 
       <td className="actions">
-        <button className="btn edit-btn" title="Edit">
+        <button className="btn edit-btn" title="Edit" onClick={() => onEditClick(_id)}>
           <svg
             aria-hidden="true"
             focusable="false"
